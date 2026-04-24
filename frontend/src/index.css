@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ────────────────────────────────────────────────────────────────
+   Centific / aegis.ai Design Tokens
+   ──────────────────────────────────────────────────────────────── */
+:root {
+    /* Brand */
+    --c-primary: #5929d0;
+    --c-primary-light: #e8e5ff;
+    --c-primary-border: #9b8ede;
+    --c-accent: #cf008b;
+    --c-accent-light: #ffd6f4;
+
+    /* Navy / deep */
+    --c-navy-dark: #0e2e89;
+    --c-navy-bot: #001427;
+    --c-cyan: #22d3ee;
+    --c-cyan-light: #cffafe;
+
+    /* Semantic */
+    --c-success: #16a34a;
+    --c-success-light: #dcfce7;
+    --c-warning: #e4902e;
+    --c-warning-light: #fef3c7;
+    --c-error: #dc2626;
+    --c-error-light: #fee2e2;
+
+    /* Neutrals */
+    --c-n0: #0f172a;
+    --c-n1: #1e293b;
+    --c-n2: #334155;
+    --c-n4: #64748b;
+    --c-n5: #94a3b8;
+    --c-n7: #e2e8f0;
+    --c-n8: #f1f5f9;
+    --c-white: #ffffff;
+
+    /* Gradients */
+    --grad-hero: linear-gradient(
+        135deg,
+        #ede9ff 0%,
+        #ffe4f7 55%,
+        #ffffff 100%
+    );
+    --grad-banner: linear-gradient(90deg, #a855f7 0%, #6b8ef0 50%, #01cab8 100%);
+
+    /* shadcn tokens mapped */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 256 69% 49%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 322 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 256 69% 49%;
+    --radius: 0.75rem;
+}
+
+* {
+    border-color: hsl(var(--border));
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "Poppins", system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--c-n1);
+    background-color: #faf9ff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography roles */
+.display {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--c-n0);
+}
+.h1 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--c-n0);
+}
+.h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.25;
+    color: var(--c-n0);
+}
+.h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.3;
+    color: var(--c-n0);
+}
+.h4 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--c-n0);
+}
+.body {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--c-n1);
+}
+.caption {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--c-n4);
+}
+.ui-label {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-n4);
+}
+.mono {
+    font-family: "Courier New", Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Gradients */
+.bg-hero {
+    background: var(--grad-hero);
+}
+.bg-banner {
+    background: var(--grad-banner);
+}
+
+/* Subtle grid overlay for hero */
+.hero-grid {
+    background-image:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(89, 41, 208, 0.08) 0,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(207, 0, 139, 0.07) 0,
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #ede9ff 0%,
+            #ffe4f7 55%,
+            #ffffff 100%
+        );
+}
+
+/* Pill button primary */
+.btn-pill {
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 13px;
+    transition:
+        transform 160ms ease,
+        box-shadow 160ms ease,
+        background-color 160ms ease;
+}
+.btn-primary {
+    background: var(--c-primary);
+    color: #fff;
+    box-shadow: 0 6px 16px -6px rgba(89, 41, 208, 0.45);
+}
+.btn-primary:hover {
+    background: #4a22b8;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px -8px rgba(89, 41, 208, 0.55);
+}
+.btn-pink {
+    background: var(--c-accent);
+    color: #fff;
+}
+.btn-pink:hover {
+    background: #b8007a;
+}
+.btn-outline {
+    background: #fff;
+    color: var(--c-primary);
+    border: 1px solid var(--c-primary-border);
+}
+.btn-outline:hover {
+    background: var(--c-primary-light);
+}
+.btn-ghost {
+    background: transparent;
+    color: var(--c-n2);
+}
+.btn-ghost:hover {
+    background: var(--c-n8);
+}
+
+/* Card */
+.card-surface {
+    background: #fff;
+    border: 1px solid var(--c-n7);
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+/* Status chip */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+.chip-approved {
+    background: var(--c-success-light);
+    color: #0f6a2f;
+}
+.chip-pending {
+    background: var(--c-warning-light);
+    color: #8a5a10;
+}
+.chip-review {
+    background: var(--c-primary-light);
+    color: var(--c-primary);
+}
+.chip-live {
+    background: #dcfce7;
+    color: #0f6a2f;
+}
+.chip-live::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #16a34a;
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6);
+    animation: pulseDot 1.6s infinite;
+}
+@keyframes pulseDot {
+    0% {
+        box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(22, 163, 74, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+    }
+}
+
+/* Scrollbars (thin, minimal) */
+.scroll-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+    background: #d8d4ec;
+    border-radius: 999px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Bottom nav floating pill */
+.bottom-nav {
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow:
+        0 20px 40px -18px rgba(14, 46, 137, 0.18),
+        0 2px 4px rgba(15, 23, 42, 0.04);
+}
+
+/* AI panel entry animation for new messages */
+@keyframes commentarySlide {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.commentary-item {
+    animation: commentarySlide 360ms ease-out both;
+}
+
+/* Stagger fade-in util */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fade-up {
+    animation: fadeUp 500ms ease-out both;
+}
+
+/* Selection */
+::selection {
+    background: #e8e5ff;
+    color: var(--c-primary);
+}
