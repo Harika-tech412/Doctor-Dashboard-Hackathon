@@ -74,36 +74,6 @@ export const AILiveCommentary = () => {
                 </div>
             </div>
 
-            {/* Pipeline snapshot */}
-            <div className="px-5 py-4 border-b border-[var(--c-n7)] bg-[var(--c-n8)]/40">
-                <div className="ui-label mb-2">Pipeline stages</div>
-                <div className="grid grid-cols-5 gap-1.5">
-                    {["Upload", "Transcribe", "Extract", "SOAP", "Review"].map(
-                        (label, i) => (
-                            <div key={label} className="flex flex-col items-center gap-1">
-                                <div
-                                    className="w-full h-1.5 rounded-full"
-                                    style={{
-                                        background:
-                                            i < 3
-                                                ? "var(--c-primary)"
-                                                : i === 3
-                                                  ? "var(--c-accent)"
-                                                  : "var(--c-n7)",
-                                    }}
-                                />
-                                <span
-                                    className="text-[9.5px] font-semibold tracking-wider"
-                                    style={{ color: "var(--c-n4)" }}
-                                >
-                                    {label.toUpperCase()}
-                                </span>
-                            </div>
-                        )
-                    )}
-                </div>
-            </div>
-
             {/* Feed */}
             <div
                 ref={scrollRef}
